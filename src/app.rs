@@ -7,36 +7,29 @@ pub fn App() -> impl IntoView {
     provide_meta_context();
 
     view! {
-
-        <Stylesheet id="leptos" href="/style/output.css"/>
         <Router>
             <Routes>
-                <Route path="" view=  move || view! { <Home/> }/>
+                <Route
+                    path=""
+                    view=move || {
+                        view! { <Index /> }
+                    }
+                />
             </Routes>
         </Router>
     }
 }
 
 #[component]
-fn Home() -> impl IntoView {
-    let (count, set_count) = create_signal(0);
-
+fn Index() -> impl IntoView {
     view! {
-        <div class="my-0 mx-auto max-w-3xl text-center">
-            <h2 class="p-6 text-4xl">"Welcome to Leptos with Tailwind"</h2>
-            <p class="px-10 pb-10 text-left">"Tailwind will scan your Rust files for Tailwind class names and compile them into a CSS file."</p>
-            <button
-                class="bg-amber-600 hover:bg-sky-700 px-5 py-3 text-white rounded-lg"
-                on:click=move |_| set_count.update(|count| *count += 1)
-            >
-                "Something's here | "
-                {move || if count.get() == 0 {
-                    "Click me!".to_string()
-                } else {
-                    count.get().to_string()
-                }}
-                " | Some more text"
-            </button>
+        <div class="flex flex-col w-full h-screen bg-sky-100">
+            <div class="h-[8%] flex justify-center items-center bg-red-400">Header</div>
+            <main class="flex flex-row h-auto flex-grow w-ful">
+                <div class="w-1/6 bg-slate-400  flex justify-center items-center">Left</div>
+                <div class="w-4/6 bg-purple-400 flex justify-center items-center">Center</div>
+                <div class="w-1/6 bg-orange-400 flex justify-center items-center">Right</div>
+            </main>
         </div>
     }
 }

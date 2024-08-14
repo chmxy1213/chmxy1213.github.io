@@ -5,10 +5,10 @@ edition = "2021"
 
 [dependencies]
 leptos = { version = "0.6.12", features = ["csr", "nightly"] }
-leptos_meta = { version = "*", features = ["csr"] }
-leptos_router = { version = "*", features = ["csr"] }
+leptos_meta = { version = "0.6", features = ["csr"] }
+leptos_router = { version = "0.6", features = ["csr"] }
 log = "0.4"
-gloo-net = { version = "0.5", features = ["http"] }
+gloo-net = { version = "0.6", features = ["http"] }
 
 # dependencies for client (enable when csr or hydrate set)
 wasm-bindgen = { version = "0.2" }
